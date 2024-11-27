@@ -1,0 +1,61 @@
+\startenvironment env_cards
+
+\setupinteraction[title=Constellation Cards, author=Bill Garrett]
+\setupbackend[format=PDF/X-1a:2003, intent=SWOP2006_Coated5v2.icc]
+
+% Tarot cards are 2.75" x 4.75" with a 1/8th inch bleed and margin
+% \definepapersize[tarot][width=3in, height=5in]
+\definepapersize[tarot][width=3in, height=5in]
+\setuppapersize[tarot]
+
+\def\TarotMargin{0.25in}
+\setuplayout    [page] [topspace=\TarotMargin,backspace=\TarotMargin]
+\setuplayout    [page]
+\setuplayout    [location=middle]
+\setuphead[chapter][header=high, footer=none]
+
+% DEBUG
+% \showframe
+% \setupbackgrounds[header, footer][background=color, backgroundcolor=blue]
+
+% \showlayout
+% \showsetups
+% \showmakeup
+% \showframe
+
+% Font
+\starttypescript [georgia]
+  \definefontsynonym[Georgia-Regular]    [file:georgia]
+  \definefontsynonym[Georgia-Italic]     [file:georgiai]
+  \definefontsynonym[Georgia-Bold]       [file:georgiaz]
+  \definefontsynonym[Georgia-BoldItalic] [file:georgiaz]
+\stoptypescript
+
+\starttypescript [georgia]
+  \setups[font:fallback:serif]
+  \definefontsynonym[Serif]                [Georgia-Regular]    [features=default]
+  \definefontsynonym[SerifItalic]          [Georgia-Italic]     [features=default]
+  \definefontsynonym[SerifBold]            [Georgia-Bold]       [features=default]
+  \definefontsynonym[SerifBoldItalic]      [Georgia-BoldItalic] [features=default]
+\stoptypescript
+
+\starttypescript [georgia]
+  \definetypeface [georgia]    [rm] [serif] [georgia]    [default]
+\stoptypescript
+
+\setupbodyfont[georgia]
+\setupbodyfont[12pt]
+
+% No page numbering
+\setuppagenumbering[location=]
+
+% Inter-paragraph spacing
+\setupwhitespace[halfline]
+
+% Macros for card header and rule text
+\define[1]\constellationtitle{\dontleavehmode{\midaligned{\tfa\bf\underbar #1}}}
+\define[1]\constellationstack{\dontleavehmode{\midaligned{\tfx #1}}}
+\define[1]\constellationquote{\italic{#1}}
+\define[1]\constellationrule{\startalignment[middle] \italic{#1} \stopalignment}
+
+\stopenvironment

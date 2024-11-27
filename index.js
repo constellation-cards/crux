@@ -16,10 +16,6 @@ if (isNil(process.env.CRUX_CARDS_JSON) || isEmpty(process.env.CRUX_CARDS_JSON)) 
   throw new Error("Environment variable CRUX_CARDS_JSON cannot be empty");
 }
 
-if (isNil(process.env.CRUX_CONTEXT_TEMPLATE) || isEmpty(process.env.CRUX_CONTEXT_TEMPLATE)) {
-  throw new Error("Environment variable CRUX_CONTEXT_TEMPLATE cannot be empty");
-}
-
 const cardDataRaw = fs.readFileSync(process.env.CRUX_CARDS_JSON).toString();
 const cardData = JSON.parse(cardDataRaw);
 
@@ -61,7 +57,7 @@ const description = (inputString) => {
   return lines.join("\n\n");
 }
 
-const template = fs.readFileSync(process.env.CRUX_CONTEXT_TEMPLATE).toString();
+const template = fs.readFileSync("cards.tex.ejs").toString();
 const output = ejs.render(template, {cards, description});
 
 console.log(output);

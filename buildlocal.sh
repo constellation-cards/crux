@@ -2,10 +2,8 @@
 
 export CRUX_CARDS_JSON=$HOME/src/constellation-cards/cards/cards.json
 export CRUX_CARDS_DECK=CORE
-export CRUX_CONTEXT_TEMPLATE=cards.tex.ejs
+export CRUX_CARDS_BUILD=$PWD/out
 
-node index.js > cards.tex
+mkdir $CRUX_CARDS_BUILD
 
-# context cards.txt --purgeall
-
-# TODO: run ImageMagick commands
+./build.sh
