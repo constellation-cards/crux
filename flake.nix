@@ -30,6 +30,9 @@
           config = {
             Cmd = ["/bin/bash" "build.sh"];
             WorkingDir = "/_napalm-install";
+            Labels = {
+              "org.opencontainers.image.source" = "https://github.com/constellation-cards/crux";
+            };
           };
         };
         devShell = pkgs.mkShell {
