@@ -32,6 +32,7 @@
             WorkingDir = "/_napalm-install";
             Labels = {
               "org.opencontainers.image.source" = "https://github.com/constellation-cards/crux";
+              "org.opencontainers.image.description" = "Builds PDFs and images from Constellation Cards JSON data";
             };
           };
         };
