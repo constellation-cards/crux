@@ -10,5 +10,7 @@ For example, if you mount card data at `cards`, you'd set `CRUX_CARDS_JSON` to `
 You can optionally set `CRUX_CARDS_DECK` to the full name of a deck from the cards JSON file, e.g. "CORE".
 This will only process cards from that deck.
 
+If you specify `CRUX_CONTEXT_TEMPLATE`, this file will be used for the doT template.
+
 Build artifacts will be copied to the path specified in `CRUX_CARDS_BUILD`.
 You should mount a directory at this point to capture the results.

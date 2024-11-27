@@ -1,0 +1,55 @@
+\environment env_cards
+
+\starttext
+
+\tolerance 9999
+\emergencystretch 3em
+\vfuzz\hfuzz
+
+<% cards.forEach(function(card) { -%>
+
+% Back
+
+\constellationtitle{<%- card.back.name -%>}
+\constellationstack{<%- card.stack.name -%>}
+
+<%- description(card.back.description) -%>
+
+<% if (card.back.prompts) { -%>
+\startitemize[nowhite]
+<% card.back.prompts.forEach(function(prompt) { -%>
+\item <%- prompt %>
+<% }); -%>
+\stopitemize
+<% }; -%>
+
+\vfill
+
+\constellationrule{BACK: <%- card.back.rule -%>}
+
+\page
+
+% Front
+
+\constellationtitle{<%- card.back.name -%>}
+\constellationstack{<%- card.stack.name -%>}
+
+<%- description(card.back.description) -%>
+
+<% if (card.back.prompts) { -%>
+\startitemize[nowhite]
+<% card.back.prompts.forEach(function(prompt) { -%>
+\item <%- prompt %>
+<% }); -%>
+\stopitemize
+<% }; -%>
+
+\vfill
+
+\constellationrule{BACK: <%- card.back.rule -%>}
+
+\page
+
+<% }); -%>
+
+\stoptext
