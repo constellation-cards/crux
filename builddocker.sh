@@ -1,5 +1,7 @@
 #!/bin/sh
 
+[ -d ./out ] || mkdir ./out
+
 docker run \
   -v $HOME/src/constellation-cards/cards:/cards \
   -v $PWD/out:/out \

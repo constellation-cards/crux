@@ -22,9 +22,11 @@
           contents = [
             pkgs.bash
             pkgs.busybox
-            pkgs.texliveConTeXt
+#           pkgs.ghostscript
+#           pkgs.imagemagick
             pkgs.nodejs_22
-            pkgs.imagemagick
+#           pkgs.parallel
+            pkgs.texliveConTeXt
             cruxNode
           ];
           config = {
@@ -39,9 +41,11 @@
         devShell = pkgs.mkShell {
           name = "crux";
           packages = [
-            pkgs.texliveConTeXt
+#           pkgs.ghostscript
+#           pkgs.imagemagick
             pkgs.nodejs_22
-            pkgs.imagemagick
+#           pkgs.parallel
+            pkgs.texliveConTeXt
           ];
         };
       }
